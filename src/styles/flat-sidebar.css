@@ -1,0 +1,29 @@
+/* Override styles for .large to resemble normal items */
+.top-level .large {
+  font-size: var(--sl-text-sm); /* Match normal items' font size */
+  font-weight: normal; /* Normal weight for subitems */
+  color: var(--sl-color-gray-2); /* Match normal text color */
+  background-color: transparent; /* No background for normal items */
+  padding: 0.3em var(--sl-sidebar-item-padding-inline); /* Same padding as normal links */
+}
+
+/* Restore hover and focus behaviors */
+.top-level .large:hover,
+.top-level .large:focus {
+  color: var(--sl-color-white); /* Same hover color as normal items */
+  text-decoration: none; /* Consistent with normal items */
+  border-radius: 0.25rem; /* Match hover state of normal links */
+}
+
+/* If .large items might still have aria-current applied, handle those too */
+.top-level .large[aria-current="page"],
+.top-level .large[aria-current="page"]:hover,
+.top-level .large[aria-current="page"]:focus {
+  font-weight: 600; /* Same active weight as normal items */
+  color: var(--sl-color-text-invert); /* Active color for the current item */
+  background-color: var(--sl-color-text-accent); /* Match active background */
+}
+
+.top-level li:has(.large) {
+  margin-top: 0;
+}
